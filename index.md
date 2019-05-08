@@ -8,7 +8,8 @@ title: Home
 	{% for post in site.posts %}
 	<li>
 		<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-		<p>{{ post.excerpt }}</p>
+		<p class="date">{{ post.date | date_to_string }}</p>
+		<p class="excerpt">{{ post.excerpt }}</p>
 	</li>
 	{% endfor %}
 </ul>
