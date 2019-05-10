@@ -7,9 +7,9 @@ title: Home
 <ul>
 	{% for post in site.posts %}
 	<li>
-		<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+		<h2><a href="{% if post.link %}{{ post.link }}{% else %}{{ post.url }}{% endif %}">{{ post.title }}</a></h2>
 		<p class="date">{{ post.date | date_to_string }}</p>
-		<p class="excerpt">{% if post.link %}<a href="{{ post.link }}">{{ post.title }}</a>{% else %}{{ post.excerpt }}{% endif %}</p>
+		{% unless post.link %}<p class="excerpt">{{ post.excerpt }}</p>{% endunless %}
 	</li>
 	{% endfor %}
 </ul>
